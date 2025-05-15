@@ -1,0 +1,14 @@
+.filter-bar {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.filter-bar mat-form-field {
+  width: 200px;
+}
+
+.dashboard-table {
+  margin-top: 16px;
+}

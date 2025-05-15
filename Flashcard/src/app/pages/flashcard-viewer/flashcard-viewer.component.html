@@ -1,0 +1,21 @@
+<div class="flashcard-container" (click)="flipCard()" *ngIf="flashcard">
+  <div class="flashcard" [@flipState]="isFlipped ? 'back' : 'front'">
+    <mat-icon
+      class="favorite-icon"
+      (click)="toggleFavorite($event)"
+      [@starAnimation]="isFavorite(flashcard.id) ? 'favorited' : 'unfavorited'"
+      *ngIf="isBrowser"
+    >
+      {{ isFavorite(flashcard.id) ? "star" : "star_border" }}
+    </mat-icon>
+
+    <div class="front" *ngIf="!isFlipped">
+      <h3>Question</h3>
+      <p>{{ flashcard.question }}</p>
+    </div>
+    <div class="back" *ngIf="isFlipped">
+      <h3>Answer</h3>
+      <p>{{ flashcard.answer }}</p>
+    </div>
+  </div>
+</div>

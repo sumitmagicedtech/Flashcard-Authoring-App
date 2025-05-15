@@ -1,0 +1,95 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="flashcard-form">
+  <!-- Title -->
+  <app-text-input
+    label="Title"
+    [control]="titleControl"
+    [required]="true"
+    [maxLength]="100"
+  ></app-text-input>
+
+  <!-- Images -->
+  <div class="image-section">
+    <label>Images:</label>
+    <input type="file" (change)="addImage($event)" />
+    <div class="image-list">
+      <div
+        class="image-item"
+        *ngFor="let image of images.controls; let i = index"
+      >
+        <span>{{ image.value }}</span>
+        <button mat-icon-button color="warn" (click)="removeImage(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tags -->
+  <div formGroupName="tags" class="tag-section">
+    <mat-form-field appearance="outline">
+      <mat-label>Category</mat-label>
+      <input matInput formControlName="category" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Sub Category</mat-label>
+      <input matInput formControlName="subCategory" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Subject</mat-label>
+      <input matInput formControlName="subject" />
+    </mat-form-field>
+  </div>
+
+  <!-- Difficulty -->
+  <app-select-input
+    [control]="difficultyControl"
+    label="Difficulty"
+    [options]="difficulties"
+    [required]="true"
+  ></app-select-input>
+
+  <!-- Animation -->
+  <app-select-input
+    [control]="animationControl"
+    label="Animation"
+    [options]="animations"
+    [required]="true"
+  ></app-select-input>
+
+  <!-- Question -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Question</mat-label>
+    <textarea
+      matInput
+      [formControl]="questionControl"
+      placeholder="Enter the question"
+      rows="3"
+    ></textarea>
+    <mat-error *ngIf="questionControl.hasError('required')">
+      Question is required
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Answer -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Answer</mat-label>
+    <textarea
+      matInput
+      [formControl]="answerControl"
+      placeholder="Enter the answer"
+      rows="3"
+    ></textarea>
+    <mat-error *ngIf="answerControl.hasError('required')">
+      Answer is required
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Buttons -->
+  <div class="button-group">
+    <button mat-stroked-button color="primary" type="submit">Submit</button>
+    <button mat-button type="button" (click)="resetForm()">Reset</button>
+    <button mat-button type="button" (click)="clearForm()">Clear</button>
+  </div>
+</form>
