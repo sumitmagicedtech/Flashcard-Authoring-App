@@ -4,13 +4,10 @@ import { FlashcardFormComponent } from './pages/flashcard-form/flashcard-form.co
 import { FlashcardViewerComponent } from './pages/flashcard-viewer/flashcard-viewer.component';
 
 export const routes: Routes = [
-
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-{ path: 'dashboard', component: DashboardComponent },
-{ path: 'author', component: FlashcardFormComponent },
-{ path: 'viewer', component: FlashcardViewerComponent },
- { path: 'flashcard-viewer/:id', component: FlashcardViewerComponent },
- { path: 'viewer/:id', component: FlashcardViewerComponent },
-
- { path: '**', redirectTo: 'dashboard' }
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'author', component: FlashcardFormComponent },
+  { path: 'flashcard-viewer', component: FlashcardViewerComponent }, // <-- default viewer
+  { path: 'flashcard-viewer/:id', component: FlashcardViewerComponent },
+  { path: '**', redirectTo: 'dashboard' }
 ];

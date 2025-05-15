@@ -24,32 +24,50 @@ export class FlashcardViewerComponent implements OnInit {
   isFlipped = false;
   isBrowser: boolean;
   favoriteIds = new Set<number>();
+  currentIndex = 0;
+  flashcards: any;
 
   constructor(
     private route: ActivatedRoute,
+    private trackingService: FlashcardTrackingService,
     private flashcardDataService: FlashcardDataService,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) platformId: Object
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+  const idParam = this.route.snapshot.paramMap.get('id');
 
-    this.flashcardDataService.flashcards$.subscribe((cards) => {
-      const found = cards.find((c) => c.id === id);
-      if (found) {
-        this.flashcard = found;
+  this.flashcardDataService.flashcards$.subscribe((cards) => {
+    if (idParam) {
+      const id = Number(idParam);
+      const index = cards.findIndex((c) => c.id === id);
+      if (index !== -1) {
+        this.currentIndex = index;
+        this.flashcard = cards[index];
+        this.trackingService.markAsViewed(this.flashcard.id);
       }
-    });
+    } else if (cards.length > 0) {
+      // No ID provided: default to first card
+      this.currentIndex = 0;
+      this.flashcard = cards[0];
+      this.trackingService.markAsViewed(this.flashcard.id);
+    }
+  });
 
-    if (this.isBrowser) {
-      const stored = localStorage.getItem('favorites');
-      if (stored) {
-        this.favoriteIds = new Set(JSON.parse(stored));
-      }
+  if (this.isBrowser) {
+    const stored = localStorage.getItem('favorites');
+    if (stored) {
+      this.favoriteIds = new Set(JSON.parse(stored));
     }
   }
+}
+
+
+
+
+
 
   flipCard(): void {
     this.isFlipped = !this.isFlipped;
@@ -73,4 +91,10 @@ export class FlashcardViewerComponent implements OnInit {
   isFavorite(id: number): boolean {
     return this.favoriteIds.has(id);
   }
+
+
+
+
+
+
 }
