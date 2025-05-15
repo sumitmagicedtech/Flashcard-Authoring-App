@@ -1,5 +1,9 @@
-<div class="flashcard-container" (click)="flipCard()" *ngIf="flashcard">
-  <div class="flashcard" [@flipState]="isFlipped ? 'back' : 'front'">
+<div class="flashcard-container" *ngIf="flashcard">
+  <div
+    class="flashcard"
+    [@flipState]="isFlipped ? 'back' : 'front'"
+    (click)="flipCard()"
+  >
     <mat-icon
       class="favorite-icon"
       (click)="toggleFavorite($event)"
@@ -10,12 +14,19 @@
     </mat-icon>
 
     <div class="front" *ngIf="!isFlipped">
-      <h3>Question</h3>
+      <h3>{{ currentIndex + 1 }}. Question</h3>
+
       <p>{{ flashcard.question }}</p>
     </div>
     <div class="back" *ngIf="isFlipped">
-      <h3>Answer</h3>
+      <h3>{{ currentIndex + 1 }}. Answer</h3>
       <p>{{ flashcard.answer }}</p>
     </div>
+  </div>
+
+  <div class="navigation-buttons">
+    <button mat-button (click)="prevCard()">Previous</button>
+    <button mat-button (click)="randomCard()">Random</button>
+    <button mat-button (click)="nextCard()">Next</button>
   </div>
 </div>
