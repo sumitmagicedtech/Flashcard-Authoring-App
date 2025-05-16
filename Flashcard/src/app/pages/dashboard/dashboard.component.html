@@ -97,15 +97,26 @@
     </ng-container>
 
     <!-- Action -->
+    <!-- Action -->
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let card">
-        <button mat-stroked-button color="primary" (click)="viewCard(card.id)">
-          View
-        </button>
-        <button mat-stroked-button color="warn" (click)="deleteCard(card.id)">
-          Delete
-        </button>
+        <div class="action-buttons">
+          <button
+            mat-stroked-button
+            class="view-button"
+            (click)="viewCard(card.id)"
+          >
+            View
+          </button>
+          <button
+            mat-stroked-button
+            class="delete-button"
+            (click)="deleteCard(card.id)"
+          >
+            Delete
+          </button>
+        </div>
       </td>
     </ng-container>
 
@@ -115,6 +126,7 @@
 
   <!-- Paginator -->
   <mat-paginator
+    class="paginator"
     [length]="filteredFlashcards.length"
     [pageSize]="pageSize"
     [pageSizeOptions]="[5, 10, 25, 100]"

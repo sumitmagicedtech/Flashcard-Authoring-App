@@ -1,0 +1,23 @@
+.favorites-container {
+   margin: 80px auto 20px auto;
+  padding: 1rem;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: start;
+}
+
+.flashcard {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+.remove-icon {
+  color: gold;
+  cursor: pointer;
+  margin-left: auto;
+}
+

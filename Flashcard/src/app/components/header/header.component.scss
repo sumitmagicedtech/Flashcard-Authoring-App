@@ -1,0 +1,25 @@
+.header-toolbar {  
+   position: fixed;
+     display: flex;
+  justify-content: space-between;
+  align-items: center;
+ background-color: burlywood;
+    height: 7%;
+}
+
+.app-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.star-button{
+  background-color: rgb(43, 22, 22);
+}
+
+.gold-star {
+  color: gold;
+}

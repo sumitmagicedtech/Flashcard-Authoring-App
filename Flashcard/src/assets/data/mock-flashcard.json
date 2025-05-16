@@ -20,7 +20,7 @@
       "subject": "Web Development"
     },
     "difficulty": "Easy",
-        "question": "What framework is built by Google?",
+    "question": "What framework is built by Google?",
     "answer": "Angular"
   },
   {
@@ -32,7 +32,7 @@
       "subject": "Web Development"
     },
     "difficulty": "Hard",
-        "question": "What framework is built by Google?",
+    "question": "What framework is built by Google?",
     "answer": "Angular"
   },
   {
@@ -44,7 +44,7 @@
       "subject": "Web Development"
     },
     "difficulty": "Medium",
-        "question": "What framework is built by Google?",
+    "question": "What framework is built by Google?",
     "answer": "Angular"
   }
 ]

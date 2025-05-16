@@ -31,7 +31,7 @@ import { Router } from '@angular/router';
 export class FlashcardFormComponent {
   form: FormGroup;
   difficulties = ['Easy', 'Medium', 'Hard'];
-  animations = ['Flip', 'Slide', 'Fade'];
+  animations = ['Flip'];
 
   constructor(
     private fb: FormBuilder,
@@ -47,7 +47,7 @@ export class FlashcardFormComponent {
         subject: [''],
       }),
       difficulty: ['', Validators.required],
-      animation: ['', Validators.required],
+      animation: [''],
       question: ['', Validators.required],
       answer: ['', Validators.required],
     });
@@ -103,22 +103,22 @@ export class FlashcardFormComponent {
     this.images.removeAt(index);
   }
 
-  resetForm(): void {
-    this.form.reset({
-      title: '',
-      tags: {
-        category: '',
-        subCategory: '',
-        subject: '',
-      },
-      difficulty: '',
-      animation: '',
-      question: '',
-      answer: '',
-    });
-    this.form.markAsPristine();
-    this.form.markAsUntouched();
-  }
+  // resetForm(): void {
+  //   this.form.reset({
+  //     title: '',
+  //     tags: {
+  //       category: '',
+  //       subCategory: '',
+  //       subject: '',
+  //     },
+  //     difficulty: '',
+  //     animation: '',
+  //     question: '',
+  //     answer: '',
+  //   });
+  //   this.form.markAsPristine();
+  //   this.form.markAsUntouched();
+  // }
 
   clearForm(): void {
     this.form.reset();

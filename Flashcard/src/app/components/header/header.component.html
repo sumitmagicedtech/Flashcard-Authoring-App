@@ -1,1 +1,14 @@
-<mat-toolbar color="primary"> <span>📘 Flashcard App</span> </mat-toolbar>
+<mat-toolbar color="primary" class="header-toolbar">
+  <span class="app-title">📘 Flashcard</span>
+
+  <span class="spacer"></span>
+
+  <button
+    class="star-button"
+    mat-icon-button
+    [routerLink]="['/favorites']"
+    aria-label="Favorites"
+  >
+    <mat-icon class="gold-star">star</mat-icon>
+  </button>
+</mat-toolbar>

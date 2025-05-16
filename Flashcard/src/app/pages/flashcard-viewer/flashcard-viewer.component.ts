@@ -34,32 +34,61 @@ export class FlashcardViewerComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
+  // ngOnInit(): void {
+  //   const idParam = this.route.snapshot.paramMap.get('id');
+
+  //   this.flashcardDataService.flashcards$.subscribe((cards) => {
+  //     this.flashcards = cards;
+
+  //     if (idParam) {
+  //       const id = Number(idParam);
+  //       const index = cards.findIndex((c) => c.id === id);
+  //       if (index !== -1) {
+  //         this.currentIndex = index;
+  //         this.setFlashcard();
+  //       }
+  //     } else if (cards.length > 0) {
+  //       this.currentIndex = 0;
+  //       this.setFlashcard();
+  //     }
+  //   });
+
+  //   if (this.isBrowser) {
+  //     const stored = localStorage.getItem('favorites');
+  //     if (stored) {
+  //       this.favoriteIds = new Set(JSON.parse(stored));
+  //     }
+  //   }
+  // }
+
   ngOnInit(): void {
-    const idParam = this.route.snapshot.paramMap.get('id');
+  const idParam = this.route.snapshot.paramMap.get('id');
 
-    this.flashcardDataService.flashcards$.subscribe((cards) => {
-      this.flashcards = cards;
+  this.flashcardDataService.flashcards$.subscribe((cards) => {
+    this.flashcards = cards;
 
-      if (idParam) {
-        const id = Number(idParam);
-        const index = cards.findIndex((c) => c.id === id);
-        if (index !== -1) {
-          this.currentIndex = index;
-          this.setFlashcard();
-        }
-      } else if (cards.length > 0) {
-        this.currentIndex = 0;
+    if (idParam) {
+      const id = Number(idParam);
+      const index = cards.findIndex((c) => c.id === id);
+      if (index !== -1) {
+        this.currentIndex = index;
         this.setFlashcard();
       }
-    });
-
-    if (this.isBrowser) {
-      const stored = localStorage.getItem('favorites');
-      if (stored) {
-        this.favoriteIds = new Set(JSON.parse(stored));
-      }
+    } else if (cards.length > 0) {
+      this.currentIndex = 0;
+      this.setFlashcard();
     }
+  });
+
+  this.syncFavorites();
+}
+
+syncFavorites(): void {
+  if (this.isBrowser) {
+    this.favoriteIds = new Set(this.trackingService.getFavorites());
   }
+}
+
 
   setFlashcard(): void {
     this.flashcard = this.flashcards[this.currentIndex];
@@ -71,20 +100,36 @@ export class FlashcardViewerComponent implements OnInit {
     this.isFlipped = !this.isFlipped;
   }
 
+  // toggleFavorite(event: Event): void {
+  //   if (!this.flashcard || !this.isBrowser) return;
+
+  //   event.stopPropagation();
+  //   const currentId = this.flashcard.id;
+
+  //   if (this.favoriteIds.has(currentId)) {
+  //     this.favoriteIds.delete(currentId);
+  //   } else {
+  //     this.favoriteIds.add(currentId);
+  //   }
+
+  //   localStorage.setItem('favorites', JSON.stringify([...this.favoriteIds]));
+  // }
+
   toggleFavorite(event: Event): void {
-    if (!this.flashcard || !this.isBrowser) return;
+  if (!this.flashcard || !this.isBrowser) return;
 
-    event.stopPropagation();
-    const currentId = this.flashcard.id;
+  event.stopPropagation();
+  const currentId = this.flashcard.id;
 
-    if (this.favoriteIds.has(currentId)) {
-      this.favoriteIds.delete(currentId);
-    } else {
-      this.favoriteIds.add(currentId);
-    }
-
-    localStorage.setItem('favorites', JSON.stringify([...this.favoriteIds]));
+  if (this.trackingService.isFavorite(currentId)) {
+    this.trackingService.removeFavorite(currentId);
+  } else {
+    this.trackingService.addFavorite(currentId);
   }
+
+  this.syncFavorites();
+}
+
 
   isFavorite(id: number): boolean {
     return this.favoriteIds.has(id);

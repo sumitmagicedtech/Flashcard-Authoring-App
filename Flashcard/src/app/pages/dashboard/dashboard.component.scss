@@ -1,6 +1,7 @@
 .filter-bar {
   display: flex;
   gap: 16px;
+  margin-top: 8%;
   margin-bottom: 16px;
   flex-wrap: wrap;
 }
@@ -11,4 +12,28 @@
 
 .dashboard-table {
   margin-top: 16px;
+  margin-bottom: 30px;
 }
+
+.paginator{
+  background-color: transparent;
+  margin-top: 1%;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 3px; // space between buttons
+  flex-wrap: wrap;
+}
+
+
+.view-button {
+  background-color: #1976d2; // Material Blue 700
+  color: white;
+}
+
+.delete-button {
+  background-color: #d32f2f; // Material Red 700
+  color: white;
+}
+

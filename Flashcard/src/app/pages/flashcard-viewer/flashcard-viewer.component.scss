@@ -2,8 +2,9 @@
   perspective: 1000px;
   width: 320px;
   height: 220px;
-  margin: 40px auto 20px auto;
-  cursor: pointer;
+  margin: 200px auto 20px auto;
+  cursor: pointer; /* Only if you want the whole container clickable */
+
 }
 
 .flashcard {
@@ -27,7 +28,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  background-color: #fdfdfd;
+background-color: rgb(229, 229, 229);
   font-size: 16px;
   text-align: center;
 }
@@ -50,20 +51,6 @@
   color: #666;
 }
 
-// .favorite-icon {
-//   position: absolute;
-//   top: 8px;
-//   right: 8px;
-//   font-size: 24px;
-//   cursor: pointer;
-//   transition: transform 0.3s ease, color 0.3s ease;
-// }
-
-.favorite-icon.favorited {
-  color: gold;
-  transform: scale(1.2);
-}
-
 .favorite-icon {
   position: absolute;
   top: 10px;
@@ -71,4 +58,10 @@
   cursor: pointer;
   font-size: 24px;
   z-index: 10;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.favorite-icon.favorited {
+  color: gold;
+  transform: scale(1.2);
 }

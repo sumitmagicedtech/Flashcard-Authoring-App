@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewFlashcardComponent } from './view-flashcard.component';
+import { FavoritesViewerComponent } from './favorites-viewer.component';
 
-describe('ViewFlashcardComponent', () => {
-  let component: ViewFlashcardComponent;
-  let fixture: ComponentFixture<ViewFlashcardComponent>;
+describe('FavoritesViewerComponent', () => {
+  let component: FavoritesViewerComponent;
+  let fixture: ComponentFixture<FavoritesViewerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ViewFlashcardComponent]
+      imports: [FavoritesViewerComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ViewFlashcardComponent);
+    fixture = TestBed.createComponent(FavoritesViewerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

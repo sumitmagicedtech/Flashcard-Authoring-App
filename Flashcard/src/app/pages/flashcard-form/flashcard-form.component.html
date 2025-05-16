@@ -55,7 +55,6 @@
     [control]="animationControl"
     label="Animation"
     [options]="animations"
-    [required]="true"
   ></app-select-input>
 
   <!-- Question -->
@@ -89,7 +88,7 @@
   <!-- Buttons -->
   <div class="button-group">
     <button mat-stroked-button color="primary" type="submit">Submit</button>
-    <button mat-button type="button" (click)="resetForm()">Reset</button>
+    <!-- <button mat-button type="button" (click)="resetForm()">Reset</button> -->
     <button mat-button type="button" (click)="clearForm()">Clear</button>
   </div>
 </form>
