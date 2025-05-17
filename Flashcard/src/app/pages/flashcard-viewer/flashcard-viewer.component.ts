@@ -1,18 +1,20 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { flipAnimation, starAnimation } from '../../shared/animations/flip.animation';
-import { Flashcard } from '../../shared/services/flashcard.service';
 import { FlashcardTrackingService } from '../../shared/services/flashcard-tracking.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FlashcardDataService } from '../../shared/services/flashcard-data.service';
+import { MatRadioModule } from '@angular/material/radio';
+import { Flashcard } from '../../shared/model/flashcard.model';
+
 
 @Component({
   selector: 'app-flashcard-viewer',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatIconModule],
+  imports: [CommonModule,MatRadioModule, ReactiveFormsModule, MatIconModule],
   templateUrl: './flashcard-viewer.component.html',
   styleUrl: './flashcard-viewer.component.scss',
   animations: [flipAnimation, starAnimation]

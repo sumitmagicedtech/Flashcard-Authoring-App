@@ -85,6 +85,25 @@
     </mat-error>
   </mat-form-field>
 
+  <!-- Multiple Choice Options -->
+  <div formArrayName="options">
+    <div *ngFor="let option of optionsControls; let i = index">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Option {{ i + 1 }}</mat-label>
+        <input matInput [formControlName]="i" />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <mat-radio-group formControlName="correctAnswer" class="correct-answer-group">
+    <mat-radio-button
+      *ngFor="let option of optionsControls; let i = index"
+      [value]="i"
+    >
+      Option {{ i + 1 }}
+    </mat-radio-button>
+  </mat-radio-group>
+
   <!-- Buttons -->
   <div class="button-group">
     <button mat-stroked-button color="primary" type="submit">Submit</button>

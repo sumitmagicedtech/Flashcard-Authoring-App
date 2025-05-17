@@ -10,6 +10,7 @@ import { SelectInputComponent } from '../../components/select-input/select-input
 import { TextInputComponent } from '../../components/text-input/text-input.component';
 import { FlashcardDataService } from '../../shared/services/flashcard-data.service';
 import { Router } from '@angular/router';
+import { MatRadioModule } from '@angular/material/radio';
 
 @Component({
   selector: 'app-flashcard-form',
@@ -21,6 +22,7 @@ import { Router } from '@angular/router';
     MatSelectModule,
     MatIconModule,
     MatButtonModule,
+        MatRadioModule,
     SelectInputComponent,  // Add to the imports array
     TextInputComponent,
     // TagInputComponent,
@@ -50,8 +52,29 @@ export class FlashcardFormComponent {
       animation: [''],
       question: ['', Validators.required],
       answer: ['', Validators.required],
-    });
+      options: this.fb.array([
+    this.fb.control('', Validators.required),
+    this.fb.control('', Validators.required),
+    this.fb.control('', Validators.required),
+    this.fb.control('', Validators.required),
+  ]),
+  correctAnswer: [0, Validators.required] // Index of correct answer (0-3)
+});
   }
+
+get optionsControls() {
+  return (this.form.get('options') as FormArray).controls;
+}
+
+
+get options(): FormArray {
+  return this.form.get('options') as FormArray;
+}
+
+get correctAnswerControl(): FormControl {
+  return this.form.get('correctAnswer') as FormControl;
+}
+
 
   // Control Getters
   get titleControl(): FormControl {
@@ -73,6 +96,8 @@ export class FlashcardFormComponent {
   get answerControl(): FormControl {
     return this.form.get('answer') as FormControl;
   }
+
+  
 
   get images(): FormArray {
     return this.form.get('images') as FormArray;
@@ -127,18 +152,41 @@ export class FlashcardFormComponent {
     this.form.markAsUntouched();
   }
 
-  submit(): void {
-    if (this.form.valid) {
-      const newFlashcard = {
-        id: Date.now(),
-        ...this.form.value,
-        images: this.images.controls.map(ctrl => ctrl.value),
-      };
-      this.flashcardService.addFlashcard(newFlashcard);
-      this.router.navigate(['/dashboard']);
-      console.log('Saved to LocalStorage:', newFlashcard);
-      this.form.reset();
-      this.images.clear();
-    }
+  // submit(): void {
+  //   if (this.form.valid) {
+  //     const newFlashcard = {
+  //       id: Date.now(),
+  //       ...this.form.value,
+  //       images: this.images.controls.map(ctrl => ctrl.value),
+  //     };
+  //     this.flashcardService.addFlashcard(newFlashcard);
+  //     this.router.navigate(['/dashboard']);
+  //     console.log('Saved to LocalStorage:', newFlashcard);
+  //     this.form.reset();
+  //     this.images.clear();
+  //   }
+  // }
+
+submit(): void {
+  if (this.form.valid) {
+    const newFlashcard = {
+      id: Date.now(),
+      ...this.form.value,
+      images: this.images.controls.map(ctrl => ctrl.value),
+      options: this.options.controls.map(ctrl => ctrl.value),
+correctAnswer: this.form.get('correctAnswer')?.value,
+    };
+    this.flashcardService.addFlashcard(newFlashcard);
+    this.router.navigate(['/dashboard']);
+    console.log('Saved to LocalStorage:', newFlashcard);
+    this.form.reset();
+    this.images.clear();
+    this.options.controls.forEach(control => control.setValue(''));
+    // this.correctAnswerIndex.setValue(null);
+    this.correctAnswerControl.setValue(null);
+
   }
+}
+
+
 }

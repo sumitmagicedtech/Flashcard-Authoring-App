@@ -14,10 +14,23 @@
     </mat-icon>
 
     <div class="front" *ngIf="!isFlipped">
-      <h3>{{ currentIndex + 1 }}. Question</h3>
+      <h3 class="quelabel">{{ currentIndex + 1 }}. Question</h3>
+      <p id="question">{{ flashcard.question }}</p>
 
-      <p>{{ flashcard.question }}</p>
+      <!-- Multiple Choice Options -->
+      <div class="options" *ngIf="flashcard.options?.length">
+        <mat-radio-group>
+          <mat-radio-button
+            *ngFor="let option of flashcard.options; let i = index"
+            [value]="i"
+            class="option-item"
+          >
+            {{ option }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
     </div>
+
     <div class="back" *ngIf="isFlipped">
       <h3>{{ currentIndex + 1 }}. Answer</h3>
       <p>{{ flashcard.answer }}</p>

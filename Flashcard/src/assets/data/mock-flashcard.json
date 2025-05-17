@@ -10,41 +10,5 @@
     "difficulty": "Easy",
     "question": "What framework is built by Google?",
     "answer": "Angular"
-  },
-  {
-    "id": 2,
-    "title": "TypeScript Essentials",
-    "tags": {
-      "category": "Programming",
-      "subCategory": "Language",
-      "subject": "Web Development"
-    },
-    "difficulty": "Easy",
-    "question": "What framework is built by Google?",
-    "answer": "Angular"
-  },
-  {
-    "id": 3,
-    "title": "RxJS and Observables",
-    "tags": {
-      "category": "Frontend",
-      "subCategory": "Reactive Programming",
-      "subject": "Web Development"
-    },
-    "difficulty": "Hard",
-    "question": "What framework is built by Google?",
-    "answer": "Angular"
-  },
-  {
-    "id": 4,
-    "title": "Angular Directives",
-    "tags": {
-      "category": "Frontend",
-      "subCategory": "Directives",
-      "subject": "Web Development"
-    },
-    "difficulty": "Medium",
-    "question": "What framework is built by Google?",
-    "answer": "Angular"
   }
 ]
