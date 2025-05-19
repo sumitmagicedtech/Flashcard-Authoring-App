@@ -9,7 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import { FlashcardDataService } from '../../shared/services/flashcard-data.service';
-import { FlashcardService } from '../../shared/services/flashcard.service';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -25,7 +25,8 @@ import { FlashcardService } from '../../shared/services/flashcard.service';
     MatSelectModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatIconModule
     
     ],
   templateUrl: './dashboard.component.html',

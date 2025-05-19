@@ -21,3 +21,17 @@
   margin-left: auto;
 }
 
+.no-favorites-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh; /* Adjust to control vertical centering */
+  text-align: center;
+
+  p {
+    font-size: 1.2rem;
+    color: #666;
+  }
+}
+
+

@@ -1,12 +1,13 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Flashcard } from '../../shared/services/flashcard.service';
+// import { Flashcard } from '../../shared/services/flashcard.service';
 import { FlashcardDataService } from '../../shared/services/flashcard-data.service';
 import { FlashcardTrackingService } from '../../shared/services/flashcard-tracking.service';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { Flashcard } from '../../shared/model/flashcard.model';
 
 @Component({
   selector: 'app-favorites-viewer',

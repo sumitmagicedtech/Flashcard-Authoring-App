@@ -1,14 +1,44 @@
 [
   {
     "id": 1,
-    "title": "What is Angular?",
+    "title": "Angular Basics",
+    "images": [],
     "tags": {
-      "category": "Web",
-      "subCategory": "Frontend",
+      "category": "Frontend",
+      "subCategory": "Frameworks",
       "subject": "Angular"
     },
     "difficulty": "Easy",
-    "question": "What framework is built by Google?",
-    "answer": "Angular"
+    "animation": "",
+    "question": "What is Angular?",
+    "answer": "A platform for building mobile and desktop web applications.",
+    "options": [
+      "A programming language",
+      "A database system",
+      "A platform for building mobile and desktop web applications",
+      "An operating system"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 2,
+    "title": "JavaScript Closures",
+    "images": [],
+    "tags": {
+      "category": "Frontend",
+      "subCategory": "JavaScript",
+      "subject": "Closures"
+    },
+    "difficulty": "Medium",
+    "animation": "",
+    "question": "What is a closure in JavaScript?",
+    "answer": "A function that has access to its outer function scope even after the outer function has returned.",
+    "options": [
+      "A way to close a program",
+      "A function that has access to its outer function scope",
+      "A type of loop",
+      "A DOM element"
+    ],
+    "correctAnswer": 1
   }
 ]

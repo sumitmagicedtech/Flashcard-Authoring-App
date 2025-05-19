@@ -19,7 +19,7 @@
 
       <!-- Multiple Choice Options -->
       <div class="options" *ngIf="flashcard.options?.length">
-        <mat-radio-group>
+        <mat-radio-group [formControl]="selectedOption">
           <mat-radio-button
             *ngFor="let option of flashcard.options; let i = index"
             [value]="i"
@@ -38,8 +38,14 @@
   </div>
 
   <div class="navigation-buttons">
-    <button mat-button (click)="prevCard()">Previous</button>
-    <button mat-button (click)="randomCard()">Random</button>
-    <button mat-button (click)="nextCard()">Next</button>
+    <button mat-raised-button (click)="prevCard()">Previous</button>
+    <button mat-raised-button (click)="randomCard()">Random</button>
+    <button mat-raised-button (click)="nextCard()">Next</button>
   </div>
+</div>
+
+<!-- <div class="viewed-message" *ngIf="cardViewed">✅ You viewed the card</div> -->
+
+<div class="viewed-message" *ngIf="hasViewedCurrentCard()">
+  ✅ You've viewed this card
 </div>

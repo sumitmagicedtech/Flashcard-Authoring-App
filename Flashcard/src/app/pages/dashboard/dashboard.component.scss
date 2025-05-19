@@ -1,8 +1,10 @@
 .filter-bar {
   display: flex;
   gap: 16px;
-  margin-top: 8%;
-  margin-bottom: 16px;
+  // margin-top: 10%;
+  // margin-bottom: 16px;
+
+   margin: 120px auto 16px 220px;
   flex-wrap: wrap;
 }
 
@@ -11,8 +13,8 @@
 }
 
 .dashboard-table {
-  margin-top: 16px;
-  margin-bottom: 30px;
+  width: 80%;
+  margin: 16px auto 30px auto;
 }
 
 .paginator{
@@ -28,12 +30,25 @@
 
 
 .view-button {
-  background-color: #1976d2; // Material Blue 700
+  background-color: rgb(56, 184, 73); // Material Blue 700
   color: white;
 }
 
 .delete-button {
-  background-color: #d32f2f; // Material Red 700
+  background-color:red; // Material Red 700
   color: white;
 }
+
+
+
+.mat-mdc-row .mat-mdc-cell {
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  border-color: currentColor;
+  background-color: lightgray;
+}
+
+
 

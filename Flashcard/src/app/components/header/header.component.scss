@@ -3,12 +3,21 @@
      display: flex;
   justify-content: space-between;
   align-items: center;
- background-color: burlywood;
-    height: 7%;
+ background-color: rgb(69, 69, 211);
+    height: 10%;
+    color: white;
 }
 
+.navigation-tab a {
+  color: white !important; /* force override */
+  font-weight: 500;
+  text-decoration: none;
+}
+
+
+
 .app-title {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -17,9 +26,9 @@
 }
 
 .star-button{
-  background-color: rgb(43, 22, 22);
+  background-color: rgb(252, 238, 225);
 }
 
 .gold-star {
-  color: gold;
+  color: goldenrod;
 }

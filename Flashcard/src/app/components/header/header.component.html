@@ -1,14 +1,28 @@
 <mat-toolbar color="primary" class="header-toolbar">
   <span class="app-title">📘 Flashcard</span>
+  <div class="navigation-tab">
+    <a mat-button routerLink="/dashboard" routerLinkActive="active-link" id=""
+      >Dashboard</a
+    >
+    <a mat-button routerLink="/author" routerLinkActive="active-link">Author</a>
+    <a mat-button routerLink="/flashcard-viewer/" routerLinkActive="active-link"
+      >Viewer</a
+    >
+  </div>
 
   <span class="spacer"></span>
 
-  <button
+  <!-- <button
     class="star-button"
-    mat-icon-button
+    mat-stroked-button
     [routerLink]="['/favorites']"
     aria-label="Favorites"
   >
     <mat-icon class="gold-star">star</mat-icon>
-  </button>
+    Favorites
+  </button> -->
+  <a mat-fab extended [routerLink]="['/favorites']">
+    <mat-icon class="gold-star">star</mat-icon>
+    Favorites
+  </a>
 </mat-toolbar>

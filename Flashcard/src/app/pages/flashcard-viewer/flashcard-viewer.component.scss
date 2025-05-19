@@ -27,7 +27,7 @@
   justify-content: center; /* Align content to top */
   align-items:center;     /* Align content to left */
   border-radius: 12px;
-  background-color: rgb(229, 229, 229);
+  background-color: lavenderblush;
    font-size: 13px; /* Reduced font size */
   line-height: 1.4;
   text-align: left;
@@ -109,3 +109,14 @@ font-size: 14px;  /* Slightly larger for label */
   text-align: left;
     font-size: 13px;
 }
+
+.viewed-message {
+display: flex;
+align-items: center;
+justify-content: center;
+  margin-top: 8rem;
+  color: green;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
