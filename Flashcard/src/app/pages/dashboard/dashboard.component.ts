@@ -1,4 +1,10 @@
-import { Component, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import {
+  Component,
+  Inject,
+  OnInit,
+  PLATFORM_ID,
+  ViewChild,
+} from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -7,11 +13,9 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { FlashcardDataService } from '../../shared/services/flashcard-data.service';
 import { MatIconModule } from '@angular/material/icon';
-
-
 
 @Component({
   selector: 'app-dashboard',
@@ -19,18 +23,17 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     FormsModule,
     MatCardModule,
-     MatButtonModule,
-      ReactiveFormsModule,
-      MatTableModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatTableModule,
     MatSelectModule,
     MatFormFieldModule,
     MatButtonModule,
     MatPaginatorModule,
-    MatIconModule
-    
-    ],
+    MatIconModule,
+  ],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent implements OnInit {
   flashcards: any[] = [];
@@ -65,24 +68,22 @@ export class DashboardComponent implements OnInit {
   pageSize: number = 5; // Set default page size to 5
   isBrowser: boolean;
 
-constructor(
-  private flashcardService: FlashcardDataService,  // <-- Use FlashcardDataService here
-  private route: Router,
-  @Inject(PLATFORM_ID) private platformId: any
-) {
-  this.isBrowser = isPlatformBrowser(this.platformId);
-}
+  constructor(
+    private flashcardService: FlashcardDataService, // <-- Use FlashcardDataService here
+    private route: Router,
+    @Inject(PLATFORM_ID) private platformId: any
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
-
-ngOnInit(): void {
-  this.flashcardService.flashcards$.subscribe((flashcards) => {
-    this.flashcards = flashcards;
-    this.filteredFlashcards = [...this.flashcards];
-    this.dataSource.data = this.filteredFlashcards.slice(0, this.pageSize);
-    this.loadFilterOptions();
-  });
-}
-
+  ngOnInit(): void {
+    this.flashcardService.flashcards$.subscribe((flashcards) => {
+      this.flashcards = flashcards;
+      this.filteredFlashcards = [...this.flashcards];
+      this.dataSource.data = this.filteredFlashcards.slice(0, this.pageSize);
+      this.loadFilterOptions();
+    });
+  }
 
   loadFilterOptions() {
     const categoriesSet = new Set<string>();
@@ -118,7 +119,9 @@ ngOnInit(): void {
         .toLowerCase()
         .includes(this.filters.difficulty.toLowerCase());
 
-      return categoryMatch && subCategoryMatch && subjectMatch && difficultyMatch;
+      return (
+        categoryMatch && subCategoryMatch && subjectMatch && difficultyMatch
+      );
     });
 
     this.dataSource.data = this.filteredFlashcards.slice(0, this.pageSize); // Reset to first 5 after applying filters

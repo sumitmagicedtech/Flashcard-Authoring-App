@@ -10,7 +10,7 @@ export interface Flashcard {
   difficulty: string;
   animation: string;
   question: string;
-  answer:string;
-    options: string[];         // ✅ add this
+  answer: string;
+  options: string[];
   correctAnswer: number;
 }

@@ -23,7 +23,7 @@ export interface Flashcard {
   providedIn: 'root',
 })
 export class FlashcardService {
-private flashcardsSubject = new BehaviorSubject<any[]>([]);
+  private flashcardsSubject = new BehaviorSubject<any[]>([]);
   flashcards$ = this.flashcardsSubject.asObservable();
   private storageKey = 'flashcards';
   private isBrowser: boolean;
@@ -40,11 +40,9 @@ private flashcardsSubject = new BehaviorSubject<any[]>([]);
     return this.http.get<any[]>('assets/data/mock-flashcard.json'); // ✅ Correct path
   }
 
-    updateFlashcards(flashcards: any[]): void {
+  updateFlashcards(flashcards: any[]): void {
     this.flashcardsSubject.next(flashcards);
   }
-
-  
 
   getFlashcardById(id: number): Observable<Flashcard | undefined> {
     const flashcards = this.getFlashcardsSync();
@@ -62,7 +60,7 @@ private flashcardsSubject = new BehaviorSubject<any[]>([]);
     localStorage.setItem(this.storageKey, JSON.stringify(flashcards));
   }
 
-deleteFlashcard(id: number): void {
+  deleteFlashcard(id: number): void {
     if (!this.isBrowser) return;
     let flashcards = this.getFlashcardsSync();
     flashcards = flashcards.filter((card) => card.id !== id);

@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormArray,
+  FormControl,
+} from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -22,13 +29,13 @@ import { MatRadioModule } from '@angular/material/radio';
     MatSelectModule,
     MatIconModule,
     MatButtonModule,
-        MatRadioModule,
-    SelectInputComponent,  // Add to the imports array
+    MatRadioModule,
+    SelectInputComponent, // Add to the imports array
     TextInputComponent,
     // TagInputComponent,
   ],
   templateUrl: './flashcard-form.component.html',
-  styleUrls: ['./flashcard-form.component.scss']
+  styleUrls: ['./flashcard-form.component.scss'],
 })
 export class FlashcardFormComponent {
   form: FormGroup;
@@ -53,28 +60,26 @@ export class FlashcardFormComponent {
       question: ['', Validators.required],
       answer: ['', Validators.required],
       options: this.fb.array([
-    this.fb.control('', Validators.required),
-    this.fb.control('', Validators.required),
-    this.fb.control('', Validators.required),
-    this.fb.control('', Validators.required),
-  ]),
-  correctAnswer: [0, Validators.required] // Index of correct answer (0-3)
-});
+        this.fb.control('', Validators.required),
+        this.fb.control('', Validators.required),
+        this.fb.control('', Validators.required),
+        this.fb.control('', Validators.required),
+      ]),
+      correctAnswer: [0, Validators.required], // Index of correct answer (0-3)
+    });
   }
 
-get optionsControls() {
-  return (this.form.get('options') as FormArray).controls;
-}
+  get optionsControls() {
+    return (this.form.get('options') as FormArray).controls;
+  }
 
+  get options(): FormArray {
+    return this.form.get('options') as FormArray;
+  }
 
-get options(): FormArray {
-  return this.form.get('options') as FormArray;
-}
-
-get correctAnswerControl(): FormControl {
-  return this.form.get('correctAnswer') as FormControl;
-}
-
+  get correctAnswerControl(): FormControl {
+    return this.form.get('correctAnswer') as FormControl;
+  }
 
   // Control Getters
   get titleControl(): FormControl {
@@ -96,8 +101,6 @@ get correctAnswerControl(): FormControl {
   get answerControl(): FormControl {
     return this.form.get('answer') as FormControl;
   }
-
-  
 
   get images(): FormArray {
     return this.form.get('images') as FormArray;
@@ -167,26 +170,23 @@ get correctAnswerControl(): FormControl {
   //   }
   // }
 
-submit(): void {
-  if (this.form.valid) {
-    const newFlashcard = {
-      id: Date.now(),
-      ...this.form.value,
-      images: this.images.controls.map(ctrl => ctrl.value),
-      options: this.options.controls.map(ctrl => ctrl.value),
-correctAnswer: this.form.get('correctAnswer')?.value,
-    };
-    this.flashcardService.addFlashcard(newFlashcard);
-    this.router.navigate(['/dashboard']);
-    console.log('Saved to LocalStorage:', newFlashcard);
-    this.form.reset();
-    this.images.clear();
-    this.options.controls.forEach(control => control.setValue(''));
-    // this.correctAnswerIndex.setValue(null);
-    this.correctAnswerControl.setValue(null);
-
+  submit(): void {
+    if (this.form.valid) {
+      const newFlashcard = {
+        id: Date.now(),
+        ...this.form.value,
+        images: this.images.controls.map((ctrl) => ctrl.value),
+        options: this.options.controls.map((ctrl) => ctrl.value),
+        correctAnswer: this.form.get('correctAnswer')?.value,
+      };
+      this.flashcardService.addFlashcard(newFlashcard);
+      this.router.navigate(['/dashboard']);
+      console.log('Saved to LocalStorage:', newFlashcard);
+      this.form.reset();
+      this.images.clear();
+      this.options.controls.forEach((control) => control.setValue(''));
+      // this.correctAnswerIndex.setValue(null);
+      this.correctAnswerControl.setValue(null);
+    }
   }
-}
-
-
 }

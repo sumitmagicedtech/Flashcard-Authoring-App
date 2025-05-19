@@ -33,7 +33,7 @@
       margin-bottom: 4px;
     }
 
-    input[type='file'] {
+    input[type="file"] {
       width: fit-content;
     }
 
@@ -61,4 +61,12 @@
     margin-top: 16px;
   }
 
+  .select-input {
+    display: flex;
+    gap: 250px;
+
+    app-select-input {
+      flex: 1;
+    }
+  }
 }

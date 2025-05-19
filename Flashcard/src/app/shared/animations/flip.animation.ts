@@ -1,14 +1,26 @@
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 
 export const flipAnimation = trigger('flipState', [
-  state('front', style({
-    transform: 'rotateY(0)'
-  })),
-  state('back', style({
-    transform: 'rotateY(180deg)'
-  })),
+  state(
+    'front',
+    style({
+      transform: 'rotateY(0)',
+    })
+  ),
+  state(
+    'back',
+    style({
+      transform: 'rotateY(180deg)',
+    })
+  ),
   transition('front => back', animate('400ms ease-out')),
-  transition('back => front', animate('400ms ease-in'))
+  transition('back => front', animate('400ms ease-in')),
 ]);
 
 export const starAnimation = trigger('starAnimation', [

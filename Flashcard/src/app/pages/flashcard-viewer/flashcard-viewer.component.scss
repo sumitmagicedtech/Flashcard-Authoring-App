@@ -25,10 +25,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center; /* Align content to top */
-  align-items:center;     /* Align content to left */
+  align-items: center; /* Align content to left */
   border-radius: 12px;
   background-color: lavenderblush;
-   font-size: 13px; /* Reduced font size */
+  font-size: 13px; /* Reduced font size */
   line-height: 1.4;
   text-align: left;
 }
@@ -38,10 +38,10 @@
 }
 
 .front {
- display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: flex-start; /* Align content to top */
-  align-items:flex-start; 
+  align-items: flex-start;
 }
 
 #question {
@@ -50,9 +50,9 @@
   margin-bottom: 8px;
 }
 
-.quelabel{
-margin-top: 2%;
-font-size: 14px;  /* Slightly larger for label */
+.quelabel {
+  margin-top: 2%;
+  font-size: 14px; /* Slightly larger for label */
   font-weight: 600;
 }
 
@@ -104,19 +104,18 @@ font-size: 14px;  /* Slightly larger for label */
 }
 
 .options mat-radio-button {
-   display: block;
+  display: block;
   width: 100%;
   text-align: left;
-    font-size: 13px;
+  font-size: 13px;
 }
 
 .viewed-message {
-display: flex;
-align-items: center;
-justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 8rem;
   color: green;
   font-weight: bold;
   font-size: 1rem;
 }
-

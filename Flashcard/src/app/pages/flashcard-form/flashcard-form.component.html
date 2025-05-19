@@ -43,19 +43,22 @@
   </div>
 
   <!-- Difficulty -->
-  <app-select-input
-    [control]="difficultyControl"
-    label="Difficulty"
-    [options]="difficulties"
-    [required]="true"
-  ></app-select-input>
 
-  <!-- Animation -->
-  <app-select-input
-    [control]="animationControl"
-    label="Animation"
-    [options]="animations"
-  ></app-select-input>
+  <div class="select-input">
+    <app-select-input
+      [control]="difficultyControl"
+      label="Difficulty"
+      [options]="difficulties"
+      [required]="true"
+    ></app-select-input>
+
+    <!-- Animation -->
+    <app-select-input
+      [control]="animationControl"
+      label="Animation"
+      [options]="animations"
+    ></app-select-input>
+  </div>
 
   <!-- Question -->
   <mat-form-field appearance="outline" class="full-width">

@@ -4,7 +4,7 @@
   // margin-top: 10%;
   // margin-bottom: 16px;
 
-   margin: 120px auto 16px 220px;
+  margin: 120px auto 16px 220px;
   flex-wrap: wrap;
 }
 
@@ -17,7 +17,7 @@
   margin: 16px auto 30px auto;
 }
 
-.paginator{
+.paginator {
   background-color: transparent;
   margin-top: 1%;
 }
@@ -28,18 +28,15 @@
   flex-wrap: wrap;
 }
 
-
 .view-button {
   background-color: rgb(56, 184, 73); // Material Blue 700
   color: white;
 }
 
 .delete-button {
-  background-color:red; // Material Red 700
+  background-color: red; // Material Red 700
   color: white;
 }
-
-
 
 .mat-mdc-row .mat-mdc-cell {
   cursor: pointer;
@@ -49,6 +46,3 @@
   border-color: currentColor;
   background-color: lightgray;
 }
-
-
-

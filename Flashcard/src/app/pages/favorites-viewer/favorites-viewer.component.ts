@@ -13,32 +13,36 @@ import { Flashcard } from '../../shared/model/flashcard.model';
   selector: 'app-favorites-viewer',
   imports: [
     CommonModule,
-     MatIconModule,
-      ReactiveFormsModule,
-          CommonModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    CommonModule,
     MatCardModule,
-    MatButtonModule
-    ],
+    MatButtonModule,
+  ],
   templateUrl: './favorites-viewer.component.html',
-  styleUrl: './favorites-viewer.component.scss'
+  styleUrl: './favorites-viewer.component.scss',
 })
 export class FavoritesViewerComponent {
-allFlashcards: Flashcard[] = [];
+  allFlashcards: Flashcard[] = [];
   favoriteFlashcards: Flashcard[] = [];
 
   private flashcardService = inject(FlashcardDataService);
   private trackingService = inject(FlashcardTrackingService);
 
   ngOnInit(): void {
-    this.flashcardService.flashcards$.subscribe(cards => {
+    this.flashcardService.flashcards$.subscribe((cards) => {
       this.allFlashcards = cards;
       const favoriteIds = this.trackingService.getFavorites();
-      this.favoriteFlashcards = cards.filter(card => favoriteIds.includes(card.id));
+      this.favoriteFlashcards = cards.filter((card) =>
+        favoriteIds.includes(card.id)
+      );
     });
   }
 
   removeFavorite(id: number): void {
     this.trackingService.removeFavorite(id);
-    this.favoriteFlashcards = this.favoriteFlashcards.filter(f => f.id !== id);
+    this.favoriteFlashcards = this.favoriteFlashcards.filter(
+      (f) => f.id !== id
+    );
   }
 }
