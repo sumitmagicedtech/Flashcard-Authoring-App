@@ -50,33 +50,6 @@ export class FlashcardViewerComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  // ngOnInit(): void {
-  //   const idParam = this.route.snapshot.paramMap.get('id');
-
-  //   this.flashcardDataService.flashcards$.subscribe((cards) => {
-  //     this.flashcards = cards;
-
-  //     if (idParam) {
-  //       const id = Number(idParam);
-  //       const index = cards.findIndex((c) => c.id === id);
-  //       if (index !== -1) {
-  //         this.currentIndex = index;
-  //         this.setFlashcard();
-  //       }
-  //     } else if (cards.length > 0) {
-  //       this.currentIndex = 0;
-  //       this.setFlashcard();
-  //     }
-  //   });
-
-  //   if (this.isBrowser) {
-  //     const stored = localStorage.getItem('favorites');
-  //     if (stored) {
-  //       this.favoriteIds = new Set(JSON.parse(stored));
-  //     }
-  //   }
-  // }
-
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
 
@@ -104,16 +77,6 @@ export class FlashcardViewerComponent implements OnInit {
       this.favoriteIds = new Set(this.trackingService.getFavorites());
     }
   }
-
-  // setFlashcard(): void {
-  //   this.flashcard = this.flashcards[this.currentIndex];
-  //   this.trackingService.markAsViewed(this.flashcard.id);
-  //   this.isFlipped = false;
-  // }
-
-  // flipCard(): void {
-  //   this.isFlipped = !this.isFlipped;
-  // }
 
   // Modify setFlashcard to reset the selection each time:
   setFlashcard(): void {

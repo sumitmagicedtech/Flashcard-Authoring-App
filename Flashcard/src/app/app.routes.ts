@@ -8,9 +8,8 @@ export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'author', component: FlashcardFormComponent },
-  { path: 'flashcard-viewer', component: FlashcardViewerComponent }, // <-- default viewer
+  { path: 'flashcard-viewer', component: FlashcardViewerComponent }, 
   { path: 'flashcard-viewer/:id', component: FlashcardViewerComponent },
-
   { path: 'favorites', component: FavoritesViewerComponent },
   { path: '**', redirectTo: 'dashboard' },
 ];

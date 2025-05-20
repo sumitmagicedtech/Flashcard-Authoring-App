@@ -1,39 +1,46 @@
+<!-- Container for favorite flashcards -->
 <div
   class="favorites-container"
   *ngIf="favoriteFlashcards.length; else noFavorites"
 >
+  <!-- Responsive card layout -->
   <div class="card-grid">
+    <!-- Render each favorite flashcard -->
     <mat-card
       class="flashcard"
       *ngFor="let card of favoriteFlashcards; let i = index"
     >
       <mat-card-header>
-        <!-- <mat-card-title>{{
-          card.title || "Flashcard #" + card.id
-        }}</mat-card-title> -->
-        <mat-icon class="remove-icon" (click)="removeFavorite(card.id)"
-          >star</mat-icon
-        >
+        <!-- Star icon used as "remove from favorites" action -->
+        <mat-icon class="remove-icon" (click)="removeFavorite(card.id)">
+          star
+        </mat-icon>
       </mat-card-header>
 
       <mat-card-content>
+        <!-- Question Text -->
         <h5>{{ i + 1 }}. Question</h5>
         <p>{{ card.question }}</p>
 
+        <!-- List of Options -->
         <h5>Options</h5>
         <ol class="option-list">
-          <li *ngFor="let option of card.options; let i = index">
+          <li *ngFor="let option of card.options">
             {{ option }}
           </li>
         </ol>
-        <!-- 
+
+        <!-- Uncomment this section to show the answer -->
+        <!--
         <h4>Answer</h4>
-        <p>{{ card.answer }}</p> -->
+        <p>{{ card.answer }}</p>
+        -->
       </mat-card-content>
     </mat-card>
   </div>
 </div>
 
+<!-- Template displayed when no favorites exist -->
 <ng-template #noFavorites>
   <div class="no-favorites-message">
     <p>No favorite flashcards found.</p>

@@ -30,9 +30,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatIconModule,
     MatButtonModule,
     MatRadioModule,
-    SelectInputComponent, // Add to the imports array
+    SelectInputComponent,
     TextInputComponent,
-    // TagInputComponent,
   ],
   templateUrl: './flashcard-form.component.html',
   styleUrls: ['./flashcard-form.component.scss'],
@@ -58,7 +57,7 @@ export class FlashcardFormComponent {
       difficulty: ['', Validators.required],
       animation: [''],
       question: ['', Validators.required],
-      answer: ['', Validators.required],
+       answer: ['', Validators.required],
       options: this.fb.array([
         this.fb.control('', Validators.required),
         this.fb.control('', Validators.required),
@@ -154,21 +153,6 @@ export class FlashcardFormComponent {
     this.form.markAsPristine();
     this.form.markAsUntouched();
   }
-
-  // submit(): void {
-  //   if (this.form.valid) {
-  //     const newFlashcard = {
-  //       id: Date.now(),
-  //       ...this.form.value,
-  //       images: this.images.controls.map(ctrl => ctrl.value),
-  //     };
-  //     this.flashcardService.addFlashcard(newFlashcard);
-  //     this.router.navigate(['/dashboard']);
-  //     console.log('Saved to LocalStorage:', newFlashcard);
-  //     this.form.reset();
-  //     this.images.clear();
-  //   }
-  // }
 
   submit(): void {
     if (this.form.valid) {

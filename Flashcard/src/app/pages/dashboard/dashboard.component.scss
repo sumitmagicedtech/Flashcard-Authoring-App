@@ -1,43 +1,48 @@
+/* Container for the top filter bar */
 .filter-bar {
   display: flex;
   gap: 16px;
-  // margin-top: 10%;
-  // margin-bottom: 16px;
-
   margin: 120px auto 16px 220px;
   flex-wrap: wrap;
 }
 
+/* Set fixed width for filter dropdowns */
 .filter-bar mat-form-field {
   width: 200px;
 }
 
+/* Main container for the table */
 .dashboard-table {
   width: 80%;
   margin: 16px auto 30px auto;
 }
 
+/* Paginator styling */
 .paginator {
   background-color: transparent;
   margin-top: 1%;
 }
 
+/* Buttons in the action column */
 .action-buttons {
   display: flex;
-  gap: 3px; // space between buttons
+  gap: 3px;
   flex-wrap: wrap;
 }
 
+/* View button style */
 .view-button {
-  background-color: rgb(56, 184, 73); // Material Blue 700
+  background-color: rgb(56, 184, 73); // Green
   color: white;
 }
 
+/* Delete button style */
 .delete-button {
-  background-color: red; // Material Red 700
+  background-color: red;
   color: white;
 }
 
+/* Hover effect for rows */
 .mat-mdc-row .mat-mdc-cell {
   cursor: pointer;
 }

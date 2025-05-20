@@ -24,7 +24,7 @@
     </div>
   </div>
 
-  <!-- Tags -->
+  <!-- Tag Inputs: Category, SubCategory, Subject -->
   <div formGroupName="tags" class="tag-section">
     <mat-form-field appearance="outline">
       <mat-label>Category</mat-label>
@@ -42,7 +42,7 @@
     </mat-form-field>
   </div>
 
-  <!-- Difficulty -->
+  <!-- Select Inputs: Difficulty and Animation -->
 
   <div class="select-input">
     <app-select-input
@@ -60,7 +60,7 @@
     ></app-select-input>
   </div>
 
-  <!-- Question -->
+  <!-- Question Textarea -->
   <mat-form-field appearance="outline" class="full-width">
     <mat-label>Question</mat-label>
     <textarea
@@ -74,7 +74,7 @@
     </mat-error>
   </mat-form-field>
 
-  <!-- Answer -->
+  <!-- Answer Textarea -->
   <mat-form-field appearance="outline" class="full-width">
     <mat-label>Answer</mat-label>
     <textarea
@@ -98,6 +98,7 @@
     </div>
   </div>
 
+  <!-- Radio Group to Select Correct Answer -->
   <mat-radio-group formControlName="correctAnswer" class="correct-answer-group">
     <mat-radio-button
       *ngFor="let option of optionsControls; let i = index"
@@ -107,7 +108,7 @@
     </mat-radio-button>
   </mat-radio-group>
 
-  <!-- Buttons -->
+  <!-- Submit and Clear Buttons -->
   <div class="button-group">
     <button mat-raised-button type="submit" class="submit">Submit</button>
     <!-- <button mat-button type="button" (click)="resetForm()">Reset</button> -->
