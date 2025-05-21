@@ -174,4 +174,10 @@ export class DashboardComponent implements OnInit {
       this.flashcardService.updateFlashcards(this.flashcards); // Update the observable in the service
     }
   }
+
+loadDummyData(): void {
+  this.flashcardService.loadMockFlashcards(); // Call it manually
+}
+
+
 }

@@ -1,0 +1,172 @@
+[
+  {
+    "id": 1011,
+    "title": "Pythagorean Theorem",
+    "images": [],
+    "tags": {
+      "category": "Geometry", 
+      "subCategory": "Triangles",
+      "subject": "Math"
+    },
+    "difficulty": "Easy",
+    "animation": "flip",
+    "question": "What is the formula of the Pythagorean Theorem?",
+    "answer": "a² + b² = c²",
+    "options": ["a² - b² = c²", "a + b = c", "a² + b² = c²", "2a + 2b = 2c"],
+    "correctAnswer": 2
+  },
+  {
+    "id": 1012,
+    "title": "Photosynthesis",
+    "images": [],
+    "tags": {
+      "category": "Science",
+      "subCategory": "Plants",
+      "subject": "Biology"
+    },
+    "difficulty": "Medium",
+    "animation": "fade",
+    "question": "What is the primary product of photosynthesis?",
+    "answer": "Glucose",
+    "options": ["Carbon Dioxide", "Oxygen", "Glucose", "Chlorophyll"],
+    "correctAnswer": 2
+  },
+  {
+    "id": 1013,
+    "title": "First Prime Number",
+    "images": [],
+    "tags": {
+      "category": "Number Theory",
+      "subCategory": "Prime Numbers",
+      "subject": "Math"
+    },
+    "difficulty": "Easy",
+    "animation": "slide",
+    "question": "What is the first prime number?",
+    "answer": "2",
+    "options": ["1", "2", "3", "5"],
+    "correctAnswer": 1
+  },
+  {
+    "id": 1014,
+    "title": "Angular CLI Command",
+    "images": [],
+    "tags": {
+      "category": "Frontend",
+      "subCategory": "Angular",
+      "subject": "Web"
+    },
+    "difficulty": "Easy",
+    "animation": "flip",
+    "question": "What Angular CLI command is used to generate a new component?",
+    "answer": "ng generate component",
+    "options": [
+      "ng create component",
+      "ng component create",
+      "ng generate component",
+      "ng new component"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 1015,
+    "title": "Human Blood Cells",
+    "images": [],
+    "tags": {
+      "category": "Science",
+      "subCategory": "Human Body",
+      "subject": "Biology"
+    },
+    "difficulty": "Medium",
+    "animation": "fade",
+    "question": "Which blood cells help fight infection?",
+    "answer": "White blood cells",
+    "options": ["Red blood cells", "White blood cells", "Platelets", "Plasma"],
+    "correctAnswer": 1
+  },
+  {
+    "id": 1016,
+    "title": "Largest Continent",
+    "images": [],
+    "tags": {
+      "category": "GK",
+      "subCategory": "Continents",
+      "subject": "Geography"
+    },
+    "difficulty": "Easy",
+    "animation": "slide",
+    "question": "Which is the largest continent by area?",
+    "answer": "Asia",
+    "options": ["Africa", "Asia", "Europe", "Antarctica"],
+    "correctAnswer": 1
+  },
+  {
+    "id": 1017,
+    "title": "Angular Lifecycle",
+    "images": [],
+    "tags": {
+      "category": "Frontend",
+      "subCategory": "Angular",
+      "subject": " Web"
+    },
+    "difficulty": "Medium",
+    "animation": "flip",
+    "question": "Which Angular lifecycle hook is called after view initialization?",
+    "answer": "ngAfterViewInit",
+    "options": ["ngOnInit", "ngDoCheck", "ngAfterViewInit", "ngOnChanges"],
+    "correctAnswer": 2
+  },
+  {
+    "id": 1018,
+    "title": "Newton's First Law",
+    "images": [],
+    "tags": {
+      "category": "Science",
+      "subCategory": "Laws of Motion",
+      "subject": "Physics"
+    },
+    "difficulty": "Medium",
+    "animation": "fade",
+    "question": "What does Newton's First Law state?",
+    "answer": "An object remains at rest or in uniform motion unless acted upon by a force.",
+    "options": [
+      "Force equals mass times acceleration",
+      "Action has an equal and opposite reaction",
+      "An object remains at rest or in uniform motion unless acted upon by a force",
+      "Energy cannot be created or destroyed"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": 1019,
+    "title": "Speed Formula",
+    "images": [],
+    "tags": {
+      "category": "Math",
+      "subCategory": "Motion",
+      "subject": "Physics"
+    },
+    "difficulty": "Easy",
+    "animation": "slide",
+    "question": "What is the formula for speed?",
+    "answer": "Distance / Time",
+    "options": ["Mass / Time", "Distance × Time", "Distance / Time", "Speed × Time"],
+    "correctAnswer": 2
+  },
+  {
+    "id": 1010,
+    "title": "Indian National Anthem",
+    "images": [],
+    "tags": {
+      "category": "GK",
+      "subCategory": "India Culture",
+      "subject": "History"
+    },
+    "difficulty": "Easy",
+    "animation": "flip",
+    "question": "Who wrote the Indian national anthem?",
+    "answer": "Rabindranath Tagore",
+    "options": ["Mahatma Gandhi", "Rabindranath Tagore", "Jawaharlal Nehru", "Subhas Chandra Bose"],
+    "correctAnswer": 1
+  }
+]

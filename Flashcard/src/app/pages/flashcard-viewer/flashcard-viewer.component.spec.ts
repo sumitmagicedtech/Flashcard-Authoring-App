@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FlashcardViewerComponent } from './flashcard-viewer.component';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 const mockActivatedRoute = {
   params: of({ id: 1 }), // customize as needed
@@ -20,7 +21,7 @@ describe('FlashcardViewerComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FlashcardViewerComponent],
-      providers : [{ provide: ActivatedRoute, useValue: mockActivatedRoute },]
+      providers : [HttpClient, HttpHandler,{ provide: ActivatedRoute, useValue: mockActivatedRoute },]
     })
     .compileComponents();
 
